@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.managepasword.HelloController">
+<VBox alignment="CENTER" prefHeight="864.0" prefWidth="440.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.managepasword.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+    <Label text="Password Manager" />
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <TextField fx:id="titleField" promptText="Title" />
+    <TextField fx:id="passwordField" promptText="Password" />
+
+    <Label text="Select storage method:" />
+    <RadioButton fx:id="ramStorage" selected="true" text="In Memory" />
+    <RadioButton fx:id="fileStorage" text="In File" />
+
+    <TextField fx:id="filePathField" promptText="File Path (if using file)" />
+
+    <Button onAction="#setStorageMethod" text="Set Storage Method" />
+    <Button onAction="#addPassword" text="Add Password" />
+    <Button onAction="#loadPasswords" text="Load Passwords" />
+
+    <TableView fx:id="passwordTable">
+        <TableColumn fx:id="idColumn" text="ID" />
+        <TableColumn fx:id="titleColumn" text="Title" />
+        <TableColumn fx:id="passwordColumn" text="Password" />
+    </TableView>
+
 </VBox>
